@@ -1,0 +1,4 @@
+streamlit
+smolagents
+supabase
+fpdf

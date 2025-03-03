@@ -1,0 +1,49 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+*.db
+
+# Streamlit
+.streamlit/
+
+# Environment files
+.env
+.env.*
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# MySQL
+*.sql
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.bak
+*.swp
