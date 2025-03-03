@@ -26,6 +26,7 @@ def create_pdf(occasion, menu):
     """Create a PDF for the menu"""
     pdf = FPDF()
     pdf.add_page()
+    occasion = occasion.replace('•', '*')
     occasion = clean_text(occasion)
 
     # Add logo/header
@@ -44,7 +45,7 @@ def create_pdf(occasion, menu):
             menu = clean_text(menu)
             menu_dict = json.loads(menu)
             for category, items in menu_dict.items():
-                item = item.replace('•', '-')
+                item = item.replace('•', '*')
                 pdf.set_font('Arial', 'B', 14)
                 pdf.cell(0, 10, category, 0, 1)
                 pdf.set_font('Arial', '', 12)

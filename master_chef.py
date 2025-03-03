@@ -230,9 +230,10 @@ def main():
             # Modify the logic here
             if st.button("View Recipes", key="recipes", use_container_width=True):
                 with st.spinner("Generating recipes..."):
+                    # Generate recipes and store them in session_state
                     st.session_state.recipes = generate_recipes(st.session_state.menu)
             
-            if st.session_state.recipes:
+            if "recipes" in st.session_state and st.session_state.recipes:
                 st.markdown("#### Recipes")
                 st.write(st.session_state.recipes)
             st.markdown("</div>", unsafe_allow_html=True)
