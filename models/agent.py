@@ -2,8 +2,15 @@
 from tools.suggest_menu import suggest_menu
 from smolagents import CodeAgent, HfApiModel
 
+
+
+# ollama_model = OllamaModel(model_name="deepseek-r1:1.5b")
+
 # Initialize the agent with our tool
 agent = CodeAgent(tools=[suggest_menu], model=HfApiModel())
+
+
+
 
 def generate_menu(occasion: str) -> str:
     """

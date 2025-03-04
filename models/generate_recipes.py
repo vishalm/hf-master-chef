@@ -2,9 +2,10 @@
 # Placeholder comment for menu_generator.py
 from tools.suggest_menu import suggest_menu
 from smolagents import CodeAgent, HfApiModel
+from models.agent import agent
 
 # Initialize the agent with our tool
-agent = CodeAgent(tools=[suggest_menu], model=HfApiModel())
+# agent = CodeAgent(tools=[suggest_menu], model=HfApiModel())
 
 
 def generate_recipes(menu):

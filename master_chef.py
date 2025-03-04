@@ -13,6 +13,7 @@ from utils.pdf_operations import create_pdf
 from models.generate_recipes import generate_recipes
 from models.generate_shopping_list import generate_shopping_list
 from models.suggest_drinks import suggest_drinks
+# from models.agent import agent
 
 # Add the project root to sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -23,7 +24,7 @@ from database.db import insert_menu, get_connection
 from smolagents import CodeAgent, HfApiModel
 
 # Initialize the agent for additional features
-agent = CodeAgent(tools=[suggest_menu], model=HfApiModel())
+# agent = CodeAgent(tools=[suggest_menu], model=HfApiModel())
 
 # Set page configuration
 st.set_page_config(
@@ -216,40 +217,39 @@ def main():
             if st.button("Create List", key="shop_list", use_container_width=True):
                 with st.spinner("Generating shopping list..."):
                     st.session_state.shopping_list = generate_shopping_list(st.session_state.menu)
-            
-            if st.session_state.shopping_list:
+
+            if "shopping_list" in st.session_state and st.session_state.shopping_list:
                 st.markdown("#### Your Shopping List")
                 st.write(st.session_state.shopping_list)
             st.markdown("</div>", unsafe_allow_html=True)
-        
+
         with feat_col2:
             st.markdown("<div class='menu-card'>", unsafe_allow_html=True)
             st.markdown("### 📋 Recipes")
             st.markdown("Get detailed recipes for menu items.")
-            
-            # Modify the logic here
-            if st.button("View Recipes", key="recipes", use_container_width=True):
+
+            if st.button("View Recipes", key="recipes_button", use_container_width=True): #changed the key here.
                 with st.spinner("Generating recipes..."):
-                    # Generate recipes and store them in session_state
-                    st.session_state.recipes = generate_recipes(st.session_state.menu)
-            
-            if "recipes" in st.session_state and st.session_state.recipes:
+                    st.session_state.generated_recipes = generate_recipes(st.session_state.menu) #using a different key.
+
+            if "generated_recipes" in st.session_state and st.session_state.generated_recipes: #changed the key here.
                 st.markdown("#### Recipes")
-                st.write(st.session_state.recipes)
+                st.write(st.session_state.generated_recipes) #changed the key here.
             st.markdown("</div>", unsafe_allow_html=True)
-        
+
         with feat_col3:
-            st.markdown("<div class='menu-card'>", unsafe_allow_html=True)
-            st.markdown("### 🍷 Drink Pairings")
-            st.markdown("Get beverage recommendations.")
-            if st.button("Suggest Drinks", key="drinks", use_container_width=True):
-                with st.spinner("Suggesting drink pairings..."):
-                    st.session_state.drinks = suggest_drinks(st.session_state.menu)
-            
-            if st.session_state.drinks:
-                st.markdown("#### Recommended Drinks")
-                st.write(st.session_state.drinks)
-            st.markdown("</div>", unsafe_allow_html=True)
+                st.markdown("<div class='menu-card'>", unsafe_allow_html=True)
+                st.markdown("### 🍷 Drink Pairings")
+                st.markdown("Get beverage recommendations.")
+                if st.button("Suggest Drinks", key="suggest_drinks_button", use_container_width=True): # changed key here
+                    with st.spinner("Suggesting drink pairings..."):
+                        st.session_state.drink_suggestions = suggest_drinks(st.session_state.menu) # changed key here
+
+                if "drink_suggestions" in st.session_state and st.session_state.drink_suggestions: # changed key here
+                    st.markdown("#### Recommended Drinks")
+                    st.write(st.session_state.drink_suggestions) # changed key here
+                st.markdown("</div>", unsafe_allow_html=True)
+
     
     # Footer
     st.markdown("---")

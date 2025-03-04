@@ -2,6 +2,8 @@
 
 Master Chef AI is an intelligent AI-powered platform designed to generate customized menus for any occasion. This project is a work in progress, developed to showcase the concepts and capabilities learned from the **Hugging Face AI Agents** course. The app leverages the power of **smolagents** for intelligent task execution, demonstrating how AI agents can be used to create personalized experiences like menu planning, shopping list generation, recipe suggestions, and drink pairings.
 
+![plot](/AI-Chef-Menu-Designer.png)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -76,7 +78,7 @@ This project is currently a **work in progress**, developed to showcase the **Hu
 
 3. Run the app:
    ```bash
-   streamlit run app.py
+   streamlit run master_chef.py
    ```
 
 4. Open your browser and go to `http://localhost:8501` to start using Master Chef AI.

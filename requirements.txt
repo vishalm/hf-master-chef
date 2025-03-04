@@ -2,3 +2,4 @@ streamlit
 smolagents
 supabase
 fpdf
+ollama
