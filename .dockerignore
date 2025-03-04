@@ -1,0 +1,38 @@
+# Ignore Python bytecode files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+venv/
+env/
+*.egg-info/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Docker files (if you're building in the same directory)
+Dockerfile
+.dockerignore
+
+# Ignore other temporary files
+*.log
+*.swp
+*.bak
+
+# Ignore any data directories you don't need in the container (adjust paths as needed)
+data/
+tmp/
+
+# If you use any IDE that creates project files (e.g., VSCode)
+.vscode/
+.idea/
+
+# Ignore sensitive files (like keys or credentials)
+*.env
+*.json

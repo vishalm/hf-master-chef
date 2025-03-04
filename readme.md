@@ -103,6 +103,25 @@ You can customize the app further by modifying:
 - **Database Integration**: Modify the database connection to use other systems like PostgreSQL or MySQL if needed.
 - **Styling**: Update the custom CSS to match your desired UI/UX preferences.
 
+
+**Build the Docker image**:
+   Run the following command in your terminal from the directory containing the `Dockerfile`:
+
+```bash
+docker build -t masterchef-ai . --no-cache
+```
+
+**Run the Docker container**:
+   After the image is built, you can run it using:
+
+```bash
+docker run -p 8501:8501 masterchef-ai
+```
+
+This will run your Streamlit app on port 8501. You can access it by visiting `http://localhost:8501` in your web browser.
+
+
+
 ## Contributing
 
 We welcome contributions to improve the app! If you'd like to contribute, feel free to fork the repository, make your changes, and create a pull request.
